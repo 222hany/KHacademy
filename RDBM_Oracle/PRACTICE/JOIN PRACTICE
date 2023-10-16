@@ -1,0 +1,22 @@
+//JOIN(=INNER JOIN) 일치하는 행만 반환
+//부서와 직원 테이블을 JOIN하여 각 직원의 부서 정보를 가져옴
+SELECT E.ENO, E.ENAME, D.DNAME
+FROM EMPLOYEE E
+JOIN DEPARTMENT D ON E.DNO =  D.DNO;
+
+//LEFT JOIN 왼쪽 테이블의 모든 행을 반환
+//모든 부서와 부서에 속한 직원을 가져오기 만약 부서에 속한 직원이 없는 경우 부서 정보 포함하기
+SELECT D.DNO, D.DNAME, E.ENO, E.ENAME
+FROM DEPARTMENT D
+LEFT JOIN EMPLOYEE E ON D.DNO = E.ENO;
+
+//RIGHT JOIN 오른쪽 테이블의 모든 행을 반환
+//모든 직원과 직원이 속한 부서 정보 가져오기 부서에 속하지 않은 경우도 직원 정보 포함
+SELECT E.ENO, E.ENAME, D.DNO, D.DNAME
+FROM EMPLOYEE E
+RIGHT JOIN DEPARTMENT D ON E.DNO = D.DNO;
+
+//FULL JOIN(FULL OUTER JOIN) 양쪽 테이블의 모든 행을 반환
+SELECT D.DNO, D.DNAME, E.ENO, E.ENAME
+FROM DEPARTMENT D
+FULL JOIN EMPLOYEE E ON D.DNO = E.DNO;
